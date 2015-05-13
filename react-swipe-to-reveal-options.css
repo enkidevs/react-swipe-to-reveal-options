@@ -1,0 +1,49 @@
+.stro-container {
+  width: 300%;
+  margin-left: -100% ;
+  position: relative;
+  height: 65px;
+}
+
+.stro-container.transition-back {
+  transition: all .4s ease;
+}
+
+.stro-left,
+.stro-content,
+.stro-right {
+  position: relative;
+  display: inline-block;
+  width: 33.33333333%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.stro-button {
+  position: absolute;
+  height: 100%;
+}
+
+.stro-button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.stro-button.stro-right-button {
+  left: 0;
+}
+.stro-button.stro-left-button {
+  right: 0;
+}
+
+.stro-container.show-right-buttons,
+.stro-container.show-left-buttons,
+.stro-container.show-right-buttons .stro-button,
+.stro-container.show-left-buttons .stro-button{
+  transition: all .3s ease;
+}
