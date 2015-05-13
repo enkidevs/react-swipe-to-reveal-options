@@ -1,6 +1,6 @@
 {
   "name": "react-swipe-to-reveal-options",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple react.js component for a swipe-to-reveal-option item.",
   "main": "react-swipe-to-reveal-options.js",
   "dependencies": {
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/mathieudutour/react-swipe-to-reveal-options/issues"
   },
-  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options"
+  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0"
+  }
 }
