@@ -1,0 +1,35 @@
+{
+  "name": "react-swipe-to-reveal-options",
+  "main": [
+    "react-swipe-to-reveal-options.js",
+    "react-swipe-to-reveal-options.css"
+  ],
+  "version": "0.1.0",
+  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options",
+  "description": "Simple react.js component for a inline progress indicator",
+  "keywords": [
+    "react",
+    "progress",
+    "button",
+    "component",
+    "javascript",
+    "react-component"
+  ],
+  "authors": [
+    "Mathieu Dutour <mathieu@dutour.me>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "example"
+  ],
+  "dependencies": {
+    "react": "^0.12.0",
+    "react-swipeable": "^2.1.0",
+    "classnames": "^2.1.0"
+  }
+}

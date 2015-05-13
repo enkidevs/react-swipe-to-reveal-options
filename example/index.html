@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <title>react-react-swipe-to-reveal-options example (without JSX)</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../react-swipe-to-reveal-options.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    body {
+      background: #bebfbf;
+      color: #0099cc;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
+
+    #react-content{
+      overflow-x: hidden;
+    }
+
+    .stro-content {
+      background: #eeefef;
+      padding-left: 2em;
+      line-height: 65px;
+      border-bottom: 1px solid #AAA;
+    }
+
+    .move {
+      color: #FFF;
+      background: #3498db;
+    }
+
+    .archive {
+      color: #FFF;
+      background: #e67e22;
+    }
+
+    .trash {
+      color: #FFF;
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div id="react-content"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/react.js"></script>
+  <script src="../react-swipe-to-reveal-options.js"></script>
+  <script>
+    var SwipeToRevealList = React.createClass({
+      displayName: "SwipeToRevealList",
+
+      render() {
+        var items = [
+          {
+            leftOptions: [{
+              label: 'Trash',
+              class: 'trash'
+            }],
+            rightOptions: [{
+              label: 'Move',
+              class: 'move',
+            },{
+              label: 'Archive',
+              class: 'archive',
+            }],
+            content: "Mail from Mathieu",
+            callActionWhenSwipingFarLeft: true,
+            callActionWhenSwipingFarRight: true
+          },
+          {
+            leftOptions: [{
+              label: 'Trash',
+              class: 'trash'
+            }],
+            rightOptions: [{
+              label: 'Move',
+              class: 'move',
+            },{
+              label: 'Archive',
+              class: 'archive',
+            }],
+            content: "Mail from Arseny",
+            callActionWhenSwipingFarRight: true,
+            callActionWhenSwipingFarLeft: false
+          },
+          {
+            leftOptions: [{
+              label: 'Trash',
+              class: 'trash'
+            }],
+            rightOptions: [{
+              label: 'Move',
+              class: 'move',
+            },{
+              label: 'Archive',
+              class: 'archive',
+            }],
+            content: "Mail from Bruno",
+            callActionWhenSwipingFarRight: false,
+            callActionWhenSwipingFarLeft: false
+          }
+        ];
+        return (
+          React.createElement("div", null,
+          items.map(function(item) {
+            return (
+              React.createElement(SwipeToRevealOptions, {
+                leftOptions: item.leftOptions,
+                rightOptions: item.rightOptions,
+                callActionWhenSwipingFarRight: item.callActionWhenSwipingFarRight,
+                callActionWhenSwipingFarLeft: item.callActionWhenSwipingFarLeft},
+                item.content
+              )
+            );
+          })
+          )
+        );
+      },
+
+      handleClick() {
+        this.refs.button.loading();
+        //make asynchronious call
+        setTimeout(function() {
+          this.refs.button.success();
+        }.bind(this), 3000);
+      }
+    });
+
+    React.render(React.createElement(SwipeToRevealList, null), document.getElementById("react-content"));
+  </script>
+</body>
+</html>
