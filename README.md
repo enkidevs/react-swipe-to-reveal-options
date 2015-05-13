@@ -173,6 +173,13 @@ Hide the options.
 
 Look at [react-swipe-to-reveal-options.css](https://github.com/mathieudutour/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
 
+## Contribute
+
+To build form source:
+```
+gulp
+```
+
 ---
 
 MIT Licensed
