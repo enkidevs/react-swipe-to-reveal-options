@@ -210,6 +210,7 @@
         onRightClick: function() {},
         onLeftClick: function() {},
         onReveal: function() {},
+        closeOthers: function() {},
         maxItemWidth: 120,
         parentWidth: window.outerWidth || screen.width
       };
@@ -238,7 +239,7 @@
 
           React.createElement(Swipeable, {className: "stro-content",
                      onSwipingLeft: this.swipingLeft,
-                     onClick: this.transitionBack,
+                     onClick: this.handleContentClick,
                      onSwipingRight: this.swipingRight,
                      delta: 15,
                      onSwiped: this.swiped},
@@ -483,6 +484,11 @@
         style.paddingRight = padding;
       }
       return style;
+    },
+
+    handleContentClick() {
+      this.props.closeOthers();
+      this.transitionBack();
     }
   });
 
