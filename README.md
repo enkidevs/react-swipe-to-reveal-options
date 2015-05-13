@@ -27,11 +27,69 @@ var SwipeToRevealOptions = require('react-swipe-to-reveal-options');
 
 var App = React.createClass({
   render() {
+    var items = [
+      {
+        leftOptions: [{
+          label: 'Trash',
+          class: 'trash'
+        }],
+        rightOptions: [{
+          label: 'Move',
+          class: 'move',
+        },{
+          label: 'Archive',
+          class: 'archive',
+        }],
+        content: "Mail from Mathieu",
+        callActionWhenSwipingFarLeft: true,
+        callActionWhenSwipingFarRight: true
+      },
+      {
+        leftOptions: [{
+          label: 'Trash',
+          class: 'trash'
+        }],
+        rightOptions: [{
+          label: 'Move',
+          class: 'move',
+        },{
+          label: 'Archive',
+          class: 'archive',
+        }],
+        content: "Mail from Arseny",
+        callActionWhenSwipingFarRight: true,
+        callActionWhenSwipingFarLeft: false
+      },
+      {
+        leftOptions: [{
+          label: 'Trash',
+          class: 'trash'
+        }],
+        rightOptions: [{
+          label: 'Move',
+          class: 'move',
+        },{
+          label: 'Archive',
+          class: 'archive',
+        }],
+        content: "Mail from Bruno",
+        callActionWhenSwipingFarRight: false,
+        callActionWhenSwipingFarLeft: false
+      }
+    ];
     return (
       <div>
-        <SwipeToRevealOptions ref='button' onClick={this.handleClick}>
-          Go!
-        </SwipeToRevealOptions>
+        items.map(function(item) {
+          return (
+            <SwipeToRevealOptions
+              leftOptions={item.leftOptions},
+              rightOptions={item.rightOptions},
+              callActionWhenSwipingFarRight={item.callActionWhenSwipingFarRight},
+              callActionWhenSwipingFarLeft={item.callActionWhenSwipingFarLeft} >
+              {item.content}
+            </SwipeToRevealOptions>
+          );
+        })
       </div>
     );
   },
