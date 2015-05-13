@@ -4,15 +4,16 @@
   } else if (typeof define === "function" && define.amd) {
     define(["react"], factory);
   } else {
-    root.SwipeToRevealOptions = factory(root.React, root.Swipeable);
+    root.SwipeToRevealOptions = factory(root.React);
   }
 })(this, function (React) {
   "use strict";
 
-  function translateStyle(x, measure) {
+  function translateStyle(x, measure, y) {
+    var _y = y || '0';
     return {
-      transform: 'translate3d(' + x + measure + ', 0, 0)',
-      WebkitTransform: 'translate3d(' + x + measure + ', 0, 0)'
+      transform: 'translate3d(' + x + measure + ', ' + _y + ', 0)',
+      WebkitTransform: 'translate3d(' + x + measure + ', ' + _y + ', 0)'
     };
   }
 
@@ -459,31 +460,20 @@
 
     getSpanStyle(side, index) {
       var width = this.getItemWidth(side);
-      var nbOptions = side === 'left' ? this.props.leftOptions.length :
-        this.props.rightOptions.length;
-      var style = {};
-      var padding;
+      var factor = side === "left" ? 1 : -1;
+      var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
 
-      if (this.state.transitionBack ||
-          (side === 'left' && this.state.showLeftButtons ||
-           this.state.showRightButtons
-          )) {
-        return style;
+      if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
+        return null;
       }
 
-      if (Math.abs(this.state.delta) > this.props.actionThreshold &&
-          (side === 'left' && this.props.callActionWhenSwipingFarRight ||
-           this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
-        return style;
+      if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
+        return null;
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
-        padding = (Math.abs(this.state.delta) - nbOptions * width) * 0.85;
+        var padding = factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.425;
+        return translateStyle(padding, "px", '-50%');
       }
-      if (side === 'left') {
-        style.paddingLeft = padding;
-      } else {
-        style.paddingRight = padding;
-      }
-      return style;
+      return null;
     },
 
     handleContentClick() {
