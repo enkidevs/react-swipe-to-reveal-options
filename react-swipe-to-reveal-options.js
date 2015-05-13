@@ -211,7 +211,7 @@
       };
     },
 
-    render: function render() {
+    render: function () {
       var classes = this.props.className + " stro-container";
       if (this.state.transitionBack) {
         classes += " transition-back";
@@ -346,21 +346,21 @@
       }).bind(this), this.props.transitionBackTimeout);
     },
 
-    rightClick: function rightClick(option) {
+    rightClick: function (option) {
       this.props.onRightClick(option);
       this.transitionBack();
     },
 
-    leftClick: function leftClick(option) {
+    leftClick: function (option) {
       this.props.onLeftClick(option);
       this.transitionBack();
     },
 
-    close: function close() {
+    close: function () {
       this.transitionBack();
     },
 
-    transitionBack: function transitionBack() {
+    transitionBack: function () {
       this.setState({
         showLeftButtons: false,
         showRightButtons: false,
@@ -371,7 +371,7 @@
       }).bind(this), this.props.transitionBackTimeout);
     },
 
-    getContainerStyle: function getContainerStyle() {
+    getContainerStyle: function () {
       var itemWidth;
       if (this.state.delta === 0 && this.state.showRightButtons) {
         itemWidth = this.getItemWidth("right");
@@ -383,12 +383,12 @@
       return translateStyle(this.state.delta, "px");
     },
 
-    getItemWidth: function getItemWidth(side) {
+    getItemWidth: function (side) {
       var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
       return Math.min(this.props.parentWidth / (nbOptions + 1), this.props.maxItemWidth);
     },
 
-    getStyle: function getStyle(side, index) {
+    getStyle: function (side, index) {
       var factor = side === "left" ? -1 : 1;
       var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
       var width = this.getItemWidth(side);

@@ -55,7 +55,7 @@
     var SwipeToRevealList = React.createClass({
       displayName: "SwipeToRevealList",
 
-      render() {
+      render: function() {
         var items = [
           {
             leftOptions: [{
@@ -123,7 +123,7 @@
         );
       },
 
-      handleClick() {
+      handleClick: function() {
         this.refs.button.loading();
         //make asynchronious call
         setTimeout(function() {
