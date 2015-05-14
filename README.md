@@ -2,9 +2,9 @@
 
 > Simple [React](http://facebook.github.io/react/index.html) component for a swipe-to-reveal-option item.
 
-### [Demo](https://mathieudutour.github.io/react-swipe-to-reveal-options)
+### [Demo](https://enki-com.github.io/react-swipe-to-reveal-options)
 
-[![Demo](https://cdn.rawgit.com/mathieudutour/react-swipe-to-reveal-options/master/example/demo.gif "Demo")](https://github.com/mathieudutour/react-swipe-to-reveal-options/blob/master/example/index.html)
+[![Demo](https://cdn.rawgit.com/enki-com/react-swipe-to-reveal-options/master/example/demo.gif "Demo")](https://github.com/enki-com/react-swipe-to-reveal-options/blob/master/example/index.html)
 
 ## Install
 
@@ -171,7 +171,7 @@ Hide the options.
 
 ## Styles
 
-Look at [react-swipe-to-reveal-options.css](https://github.com/mathieudutour/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
+Look at [react-swipe-to-reveal-options.css](https://github.com/enki-com/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
 
 ## Contribute
 
