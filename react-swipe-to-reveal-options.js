@@ -420,13 +420,13 @@
       var style;
 
       if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
-        style = translateStyle(factor * -10, "px", "-50%");
+        style = translateStyle(0, "px", "-50%");
         style.width = width;
         return style;
       }
 
       if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
-        padding = factor * -10;
+        padding = 0;
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
         padding += factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.425;
       }
