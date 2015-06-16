@@ -1,5 +1,3 @@
-"use strict";
-
 ;(function (root, factory) {
   if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(require("react"));
@@ -9,7 +7,6 @@
     root.SwipeToRevealOptions = factory(root.React);
   }
 })(this, function (React) {
-  "use strict";
 
   function translateStyle(x, measure, y) {
     var _y = y || "0";
@@ -211,7 +208,7 @@
       };
     },
 
-    render: function () {
+    render: function render() {
       var classes = this.props.className + " stro-container";
       if (this.state.transitionBack) {
         classes += " transition-back";
@@ -346,21 +343,21 @@
       }).bind(this), this.props.transitionBackTimeout);
     },
 
-    rightClick: function (option) {
+    rightClick: function rightClick(option) {
       this.props.onRightClick(option);
       this.transitionBack();
     },
 
-    leftClick: function (option) {
+    leftClick: function leftClick(option) {
       this.props.onLeftClick(option);
       this.transitionBack();
     },
 
-    close: function () {
+    close: function close() {
       this.transitionBack();
     },
 
-    transitionBack: function () {
+    transitionBack: function transitionBack() {
       this.setState({
         showLeftButtons: false,
         showRightButtons: false,
@@ -371,7 +368,7 @@
       }).bind(this), this.props.transitionBackTimeout);
     },
 
-    getContainerStyle: function () {
+    getContainerStyle: function getContainerStyle() {
       var itemWidth;
       if (this.state.delta === 0 && this.state.showRightButtons) {
         itemWidth = this.getItemWidth("right");
@@ -383,22 +380,20 @@
       return translateStyle(this.state.delta, "px");
     },
 
-    getItemWidth: function (side) {
+    getItemWidth: function getItemWidth(side) {
       var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
       return Math.min(this.props.parentWidth / (nbOptions + 1), this.props.maxItemWidth);
     },
 
-    getStyle: function (side, index) {
+    getStyle: function getStyle(side, index) {
       var factor = side === "left" ? -1 : 1;
       var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
       var width = this.getItemWidth(side);
       var transition;
       var style;
-      var padding;
 
       if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
-        style = translateStyle(factor * index * 100, "%");
-        style.width = width;
+        style = translateStyle(factor * index * width, "px");
         return style;
       }
 
@@ -407,23 +402,12 @@
       if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
         transition = "transform 0.15s ease-out";
         offset = 0;
-        width = Math.abs(this.state.delta);
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
         offset += factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.85;
-        width += (Math.abs(this.state.delta) - nbOptions * width) * 0.85;
-        padding = Math.abs(this.state.delta) - nbOptions * width;
       }
       style = translateStyle(offset, "px");
-      style.width = width;
       if (transition) {
         style.transition = transition;
-      }
-      if (padding) {
-        if (side === "left") {
-          style.paddingLeft = padding;
-        } else {
-          style.paddingRight = padding;
-        }
       }
       return style;
     },
@@ -432,18 +416,23 @@
       var width = this.getItemWidth(side);
       var factor = side === "left" ? 1 : -1;
       var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
+      var padding;
+      var style;
 
       if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
-        return null;
+        style = translateStyle(factor * -10, "px", "-50%");
+        style.width = width;
+        return style;
       }
 
       if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
-        return null;
+        padding = factor * -10;
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
-        var padding = factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.425;
-        return translateStyle(padding, "px", "-50%");
+        padding += factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.425;
       }
-      return null;
+      style = translateStyle(padding, "px", "-50%");
+      style.width = width;
+      return style;
     },
 
     handleContentClick: function handleContentClick() {
