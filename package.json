@@ -23,9 +23,5 @@
   "bugs": {
     "url": "https://github.com/mathieudutour/react-swipe-to-reveal-options/issues"
   },
-  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options",
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0"
-  }
+  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options"
 }

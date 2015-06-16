@@ -22,23 +22,29 @@
 .stro-button {
   position: absolute;
   height: 100%;
+  width: 100%;
 }
 
 .stro-button span {
   position: absolute;
   top: 50%;
-  left: 0;
   transform: translate(0, -50%);
   display: block;
-  width: 100%;
-  text-align: center;
 }
 
 .stro-button.stro-right-button {
   left: 0;
 }
+.stro-button.stro-right-button span {
+  left: 0;
+  text-align: center;
+}
 .stro-button.stro-left-button {
   right: 0;
+}
+.stro-button.stro-left-button span {
+  right: 0;
+  text-align: center;
 }
 
 .stro-container.show-right-buttons,
