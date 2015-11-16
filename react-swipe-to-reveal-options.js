@@ -222,7 +222,8 @@
 
       return React.createElement("div", { className: classes,
         style: this.getContainerStyle() }, React.createElement("div", { className: "stro-left" }, this.props.leftOptions.map((function (option, index) {
-        return React.createElement("div", { className: "stro-button stro-left-button " + option["class"],
+        return React.createElement("div", { className: "stro-button stro-left-button " + option.class,
+          key: 'swipe-left-option-' + index,
           onClick: this.leftClick.bind(this, option),
           style: this.getStyle("left", index) }, React.createElement("span", { style: this.getSpanStyle("left", index), dangerouslySetInnerHTML: { __html: option.label } }));
       }).bind(this))), React.createElement(Swipeable, { className: "stro-content",
@@ -231,7 +232,8 @@
         onSwipingRight: this.swipingRight,
         delta: 15,
         onSwiped: this.swiped }, this.props.children), React.createElement("div", { className: "stro-right" }, this.props.rightOptions.map((function (option, index) {
-        return React.createElement("div", { className: "stro-button stro-right-button " + option["class"],
+        return React.createElement("div", { className: "stro-button stro-right-button " + option.class,
+          key: 'swipe-right-option-' + index,
           onClick: this.rightClick.bind(this, option),
           style: this.getStyle("right", index) }, React.createElement("span", { style: this.getSpanStyle("right", index), dangerouslySetInnerHTML: { __html: option.label } }));
       }).bind(this))));
