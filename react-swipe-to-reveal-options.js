@@ -204,7 +204,7 @@
         onReveal: function onReveal() {},
         closeOthers: function closeOthers() {},
         maxItemWidth: 120,
-        parentWidth: window.outerWidth || screen.width
+        parentWidth: (typeof window !== 'undefined' && window.outerWidth) || (typeof screen !== 'undefined' && screen.width) || 320
       };
     },
 
