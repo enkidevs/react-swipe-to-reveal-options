@@ -1,9 +1,9 @@
 {
   "name": "react-swipe-to-reveal-options",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Simple react.js component for a swipe-to-reveal-option item.",
   "main": "react-swipe-to-reveal-options.js",
-  "dependencies": {
+  "peerDependencies": {
     "react": "0.x"
   },
   "scripts": {},
