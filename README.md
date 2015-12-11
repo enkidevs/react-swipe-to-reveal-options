@@ -1,8 +1,8 @@
 # react-progress-button
 
-> Simple [React](http://facebook.github.io/react/index.html) component for a swipe-to-reveal-option item.
+> Simple [React](http://facebook.github.io/react/) component for a swipe-to-reveal-option item.
 
-### [Demo](https://enki-com.github.io/react-swipe-to-reveal-options)
+### [Demo](http://enkidevs.github.io/react-swipe-to-reveal-options/)
 
 [![Demo](https://cdn.rawgit.com/enki-com/react-swipe-to-reveal-options/master/example/demo.gif "Demo")](https://github.com/enki-com/react-swipe-to-reveal-options/blob/master/example/index.html)
 
