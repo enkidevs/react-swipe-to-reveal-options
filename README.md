@@ -1,4 +1,5 @@
-# react-progress-button
+# react-swipe-to-reveal-options
+
 
 > Simple [React](http://facebook.github.io/react/index.html) component for a swipe-to-reveal-option item.
 
@@ -8,14 +9,14 @@
 
 ## Install
 
-```bash
-npm install react-swipe-to-reveal-options --save
+```console
+$ npm install react-swipe-to-reveal-options --save
 ```
 
 or
 
-```bash
-bower install react-swipe-to-reveal-options --save
+```console
+$ bower install react-swipe-to-reveal-options --save
 ```
 
 ## Example
@@ -176,8 +177,9 @@ Look at [react-swipe-to-reveal-options.css](https://github.com/enki-com/react-sw
 ## Contribute
 
 To build form source:
-```
-gulp
+
+```console
+$ gulp
 ```
 
 ---
