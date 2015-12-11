@@ -83,10 +83,11 @@ var App = React.createClass({
         items.map(function(item) {
           return (
             <SwipeToRevealOptions
-              leftOptions={item.leftOptions},
-              rightOptions={item.rightOptions},
-              callActionWhenSwipingFarRight={item.callActionWhenSwipingFarRight},
-              callActionWhenSwipingFarLeft={item.callActionWhenSwipingFarLeft} >
+              leftOptions={item.leftOptions}
+              rightOptions={item.rightOptions}
+              callActionWhenSwipingFarRight={item.callActionWhenSwipingFarRight}
+              callActionWhenSwipingFarLeft={item.callActionWhenSwipingFarLeft}
+            >
               {item.content}
             </SwipeToRevealOptions>
           );
