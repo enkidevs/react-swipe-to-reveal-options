@@ -4,7 +4,7 @@
     "react-swipe-to-reveal-options.js",
     "react-swipe-to-reveal-options.css"
   ],
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options",
   "description": "Simple react.js component for a swipe-to-reveal-option item.",
   "keywords": [
