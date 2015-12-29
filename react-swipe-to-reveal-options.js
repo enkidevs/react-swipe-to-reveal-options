@@ -344,6 +344,9 @@
         secondarySwipe: false,
         transitionBack: true
       });
+      if (this._timeout) {
+        clearTimeout(this._timeout);
+      }
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
       }).bind(this), this.props.transitionBackTimeout);
@@ -379,6 +382,9 @@
         showRightButtons: false,
         transitionBack: true
       });
+      if (this._timeout) {
+        clearTimeout(this._timeout);
+      }
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
       }).bind(this), this.props.transitionBackTimeout);
