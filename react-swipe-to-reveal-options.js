@@ -324,12 +324,10 @@
     swiped: function swiped() {
       switch (this.state.action) {
         case "rightVisible":
-          this.props.onReveal("right");
-          this.setState({ showRightButtons: true });
+          this.revealRight();
           break;
         case "leftVisible":
-          this.props.onReveal("left");
-          this.setState({ showLeftButtons: true });
+          this.revealLeft();
           break;
         case "leftAction":
           this.leftClick(this.props.leftOptions[0]);
@@ -349,6 +347,16 @@
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
       }).bind(this), this.props.transitionBackTimeout);
+    },
+
+    revealRight: function revealRight() {
+      this.props.onReveal("right");
+      this.setState({ showRightButtons: true, showRightButtons: false});
+    },
+
+    revealLeft: function revealLeft() {
+      this.props.onReveal("left");
+      this.setState({ showRightButtons: false, showRightButtons: true});
     },
 
     rightClick: function rightClick(option) {
