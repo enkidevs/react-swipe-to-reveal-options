@@ -351,12 +351,12 @@
 
     revealRight: function revealRight() {
       this.props.onReveal("right");
-      this.setState({ showRightButtons: true, showRightButtons: false});
+      this.setState({ showRightButtons: true, showLeftButtons: false});
     },
 
     revealLeft: function revealLeft() {
       this.props.onReveal("left");
-      this.setState({ showRightButtons: false, showRightButtons: true});
+      this.setState({ showRightButtons: false, showLeftButtons: true});
     },
 
     rightClick: function rightClick(option) {
