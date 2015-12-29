@@ -171,6 +171,14 @@ Width of the parent (in px). Default to the size of the screen.
 
 Hide the options.
 
+##### revealLeft()
+
+Reveal the left options.
+
+##### revealRight()
+
+Reveal the right options.
+
 ## Styles
 
 Look at [react-swipe-to-reveal-options.css](https://github.com/enki-com/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
