@@ -208,6 +208,12 @@
       };
     },
 
+    componentWillUnmount: function componentWillUnmount() {
+      if (this._timeout) {
+        clearTimeout(this._timeout);
+      }
+    },
+
     render: function render() {
       var classes = this.props.className + " stro-container";
       if (this.state.transitionBack) {
@@ -340,7 +346,7 @@
         secondarySwipe: false,
         transitionBack: true
       });
-      setTimeout((function () {
+      this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
       }).bind(this), this.props.transitionBackTimeout);
     },
@@ -365,7 +371,7 @@
         showRightButtons: false,
         transitionBack: true
       });
-      setTimeout((function () {
+      this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
       }).bind(this), this.props.transitionBackTimeout);
     },
