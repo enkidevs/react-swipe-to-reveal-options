@@ -181,7 +181,7 @@ Reveal the right options.
 
 ## Styles
 
-Look at [react-swipe-to-reveal-options.css](https://github.com/enki-com/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
+Look at [react-swipe-to-reveal-options.css](https://github.com/enkidevs/react-swipe-to-reveal-options/blob/master/react-swipe-to-reveal-options.css) for an idea on how to style this component.
 
 ## Contribute
 

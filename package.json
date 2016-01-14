@@ -9,7 +9,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/mathieudutour/react-swipe-to-reveal-options"
+    "url": "https://github.com/enkidevs/react-swipe-to-reveal-options"
   },
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   "author": "Mathieu Dutour",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mathieudutour/react-swipe-to-reveal-options/issues"
+    "url": "https://github.com/enkidevs/react-swipe-to-reveal-options/issues"
   },
-  "homepage": "https://github.com/mathieudutour/react-swipe-to-reveal-options"
+  "homepage": "https://github.com/enkidevs/react-swipe-to-reveal-options"
 }
