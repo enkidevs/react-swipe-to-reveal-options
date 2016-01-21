@@ -237,7 +237,7 @@
           return React.createElement("div", { className: "stro-button stro-left-button " + option.class,
             key: 'swipe-left-option-' + index,
             onClick: this.leftClick.bind(this, option),
-            style: this.getStyle("left", index) }, React.createElement("span", propsLabel, typeof option.label !== 'string' && option.label));
+            style: this.getStyle("left", index) }, React.createElement("span", propsLabel, typeof option.label !== 'string' && option.label || void 0));
         }).bind(this))), React.createElement(Swipeable, { className: "stro-content",
           onSwipingLeft: this.swipingLeft,
           onClick: this.handleContentClick,
@@ -253,7 +253,7 @@
             return React.createElement("div", { className: "stro-button stro-right-button " + option.class,
               key: 'swipe-right-option-' + index,
               onClick: this.rightClick.bind(this, option),
-              style: this.getStyle("right", index) }, React.createElement("span", propsLabel, typeof option.label !== 'string' && option.label));
+              style: this.getStyle("right", index) }, React.createElement("span", propsLabel, typeof option.label !== 'string' && option.label || void 0));
           }).bind(this))));
     },
 
