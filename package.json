@@ -4,7 +4,7 @@
   "description": "Simple react.js component for a swipe-to-reveal-option item.",
   "main": "react-swipe-to-reveal-options.js",
   "peerDependencies": {
-    "react": "0.x"
+    "react": "^15.0.0 || 0.x"
   },
   "scripts": {},
   "repository": {
