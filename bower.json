@@ -4,7 +4,7 @@
     "react-swipe-to-reveal-options.js",
     "react-swipe-to-reveal-options.css"
   ],
-  "version": "0.3.2",
+  "version": "0.3.4",
   "homepage": "https://github.com/enkidevs/react-swipe-to-reveal-options",
   "description": "Simple react.js component for a swipe-to-reveal-option item.",
   "keywords": [
