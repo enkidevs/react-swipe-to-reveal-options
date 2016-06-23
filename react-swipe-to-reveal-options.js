@@ -8,6 +8,29 @@
   }
 })(this, function (React) {
 
+  // Polyfill Object.assign
+  if (typeof Object.assign != 'function') {
+    Object.assign = function(target) {
+      'use strict';
+      if (target == null) {
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      target = Object(target);
+      for (var index = 1; index < arguments.length; index++) {
+        var source = arguments[index];
+        if (source != null) {
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+      }
+      return target;
+    };
+  }
+
   function translateStyle(x, measure, y) {
     var _y = y || "0";
     return {
@@ -151,7 +174,7 @@
     },
 
     render: function render() {
-      return React.createElement("div", React.__spread({}, this.props, { onTouchStart: this.touchStart,
+      return React.createElement("div", Object.assign({}, this.props, { onTouchStart: this.touchStart,
         onTouchMove: this.touchMove,
         onTouchEnd: this.touchEnd }), this.props.children);
     }
