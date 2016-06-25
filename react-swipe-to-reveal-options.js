@@ -192,6 +192,8 @@
       transitionBackTimeout: React.PropTypes.number,
       callActionWhenSwipingFarLeft: React.PropTypes.bool,
       callActionWhenSwipingFarRight: React.PropTypes.bool,
+      transitionBackOnRightClick: React.PropTypes.bool,
+      transitionBackOnLeftClick: React.PropTypes.bool,
       closeOthers: React.PropTypes.func,
       onRightClick: React.PropTypes.func,
       onLeftClick: React.PropTypes.func,
@@ -210,7 +212,9 @@
         transitionBack: false,
         action: null,
         callActionWhenSwipingFarRight: false,
-        callActionWhenSwipingFarLeft: false
+        callActionWhenSwipingFarLeft: false,
+        transitionBackOnRightClick: true,
+        transitionBackOnLeftClick: true
       };
     },
 
@@ -399,12 +403,12 @@
 
     rightClick: function rightClick(option) {
       this.props.onRightClick(option);
-      this.transitionBack();
+      if (this.props.transitionBackOnRightClick) this.transitionBack();
     },
 
     leftClick: function leftClick(option) {
       this.props.onLeftClick(option);
-      this.transitionBack();
+      if (this.props.transitionBackOnLeftClick) this.transitionBack();
     },
 
     close: function close() {
