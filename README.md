@@ -153,6 +153,14 @@ Function called when clicking on an option on the left. Received the clicked opt
 
 Also called swiping far to the right (if applicable).
 
+##### transitionBackOnRightClick
+
+Boolean defining if it should transition back to the default state after a right-side item is clicked/tapped. Defaults to true.
+
+##### transitionBackOnLeftClick
+
+Boolean defining if it should transition back to the default state after a left-side item is clicked/tapped. Defaults to true.
+
 ##### onReveal
 
 Function called when showing options once the swipe is over. Receive `'left'` or `'right'`as an argument.
