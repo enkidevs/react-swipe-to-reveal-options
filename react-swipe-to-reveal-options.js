@@ -174,9 +174,15 @@
     },
 
     render: function render() {
-      return React.createElement("div", Object.assign({}, this.props, { onTouchStart: this.touchStart,
-        onTouchMove: this.touchMove,
-        onTouchEnd: this.touchEnd }), this.props.children);
+        var props = Object.assign({}, this.props, { onTouchStart: this.touchStart,
+            onTouchMove: this.touchMove,
+            onTouchEnd: this.touchEnd });
+        var customPropNames = ["onSwiped", "onSwipingUp", "onSwipingRight", "onSwipingLeft", "onSwipedUp", "onSwipedRight", "onSwipedDown", "onSwipedLeft", "flickThreshold", "delta"];
+        for (var i = 0; i < customPropNames.length; i++) {
+            var customPropName = customPropNames[i];
+            delete props[customPropName];
+        }
+      return React.createElement("div", props, this.props.children);
     }
   });
 
