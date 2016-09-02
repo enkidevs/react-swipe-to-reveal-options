@@ -375,7 +375,7 @@
           this.revealLeft();
           break;
         case "leftAction":
-          this.leftClick(this.props.leftOptions[0]);
+          this.leftClick(this.props.leftOptions[this.props.leftOptions.length - 1]);
           break;
         case "rightAction":
           this.rightClick(this.props.rightOptions[this.props.rightOptions.length - 1]);
