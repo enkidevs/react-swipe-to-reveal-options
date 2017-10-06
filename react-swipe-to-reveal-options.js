@@ -235,6 +235,7 @@
         onRightClick: function onRightClick() {},
         onLeftClick: function onLeftClick() {},
         onReveal: function onReveal() {},
+        onClose: function onClose() {},
         closeOthers: function closeOthers() {},
         maxItemWidth: 120,
         parentWidth: (typeof window !== 'undefined' && window.outerWidth) || (typeof screen !== 'undefined' && screen.width) || 320
@@ -432,6 +433,7 @@
       }
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
+        if (this.props.onClose) this.props.onClose();
       }).bind(this), this.props.transitionBackTimeout);
     },
 
