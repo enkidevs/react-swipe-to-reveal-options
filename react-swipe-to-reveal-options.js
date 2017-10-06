@@ -435,6 +435,7 @@
       }
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
+        if (this.props.onClose) this.props.onClose();
       }).bind(this), this.props.transitionBackTimeout);
     },
 
