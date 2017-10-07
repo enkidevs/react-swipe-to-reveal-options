@@ -204,6 +204,7 @@
       onRightClick: React.PropTypes.func,
       onLeftClick: React.PropTypes.func,
       onReveal: React.PropTypes.func,
+      onClose: React.PropTypes.func,
       maxItemWidth: React.PropTypes.number,
       parentWidth: React.PropTypes.number
     },
@@ -235,6 +236,7 @@
         onRightClick: function onRightClick() {},
         onLeftClick: function onLeftClick() {},
         onReveal: function onReveal() {},
+        onClose: function onClose() {},
         closeOthers: function closeOthers() {},
         maxItemWidth: 120,
         parentWidth: (typeof window !== 'undefined' && window.outerWidth) || (typeof screen !== 'undefined' && screen.width) || 320
@@ -422,6 +424,7 @@
     },
 
     transitionBack: function transitionBack() {
+      this.props.onClose();
       this.setState({
         showLeftButtons: false,
         showRightButtons: false,
@@ -432,6 +435,7 @@
       }
       this._timeout = setTimeout((function () {
         this.setState({ transitionBack: false });
+        if (this.props.onClose) this.props.onClose();
       }).bind(this), this.props.transitionBackTimeout);
     },
 
