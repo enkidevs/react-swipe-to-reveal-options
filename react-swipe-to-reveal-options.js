@@ -377,7 +377,7 @@
           this.revealLeft();
           break;
         case "leftAction":
-          this.leftClick(this.props.leftOptions[0]);
+          this.leftClick(this.props.leftOptions[this.props.leftOptions.length - 1]);
           break;
         case "rightAction":
           this.rightClick(this.props.rightOptions[this.props.rightOptions.length - 1]);
@@ -456,20 +456,21 @@
     },
 
     getStyle: function getStyle(side, index) {
-      var factor = side === "left" ? -1 : 1;
-      var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
+      var left = side === 'left';
+      var factor = left ? -1 : 1;
+      var nbOptions = left ? this.props.leftOptions.length : this.props.rightOptions.length;
       var width = this.getItemWidth(side);
       var transition;
       var style;
 
-      if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
+      if (this.state.transitionBack || (left && this.state.showLeftButtons || this.state.showRightButtons)) {
         style = translateStyle(factor * index * width, "px");
         return style;
       }
 
       var modifier = index * 1 / nbOptions;
-      var offset = -factor * modifier * this.state.delta;
-      if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
+      var offset = -1 * modifier * this.state.delta; // fixes wrong position of buttons on the left side
+      if (Math.abs(this.state.delta) > this.props.actionThreshold && (left && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
         transition = "transform 0.15s ease-out";
         offset = 0;
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
@@ -483,24 +484,25 @@
     },
 
     getSpanStyle: function getSpanStyle(side, index) {
+      var left = side === 'left';
       var width = this.getItemWidth(side);
-      var factor = side === "left" ? 1 : -1;
-      var nbOptions = side === "left" ? this.props.leftOptions.length : this.props.rightOptions.length;
+      var factor = left ? 1 : -1;
+      var nbOptions = left ? this.props.leftOptions.length : this.props.rightOptions.length;
       var padding;
       var style;
 
-      if (this.state.transitionBack || (side === "left" && this.state.showLeftButtons || this.state.showRightButtons)) {
+      if (this.state.transitionBack || (left && this.state.showLeftButtons || this.state.showRightButtons)) {
         style = translateStyle(0, "px", "-50%");
         style.width = width;
         return style;
       }
 
-      if (Math.abs(this.state.delta) > this.props.actionThreshold && (side === "left" && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
+      if (Math.abs(this.state.delta) > this.props.actionThreshold && (left && this.props.callActionWhenSwipingFarRight || this.props.callActionWhenSwipingFarLeft) && index === nbOptions - 1) {
         padding = 0;
       } else if (nbOptions * width < Math.abs(this.state.delta)) {
         padding += factor * (Math.abs(this.state.delta) - nbOptions * width) * 0.425;
       }
-      style = translateStyle(padding, "px", "-50%");
+      style = translateStyle(padding, 'px', '-50%');
       style.width = width;
       return style;
     },
